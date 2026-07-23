@@ -1,0 +1,120 @@
+{
+  "name": "image-style-copywriter",
+  "display_name": "图片风格文案生成器",
+  "version": "1.1.0",
+  "description": "根据人物图片、穿搭照片、生活方式照片或 AI 写真，生成适合小红书发布的多风格标题、正文、标签和短文案。",
+  "category": "Social Media / Content Creation",
+  "language": "zh-CN",
+  "author": "SkillHub Creator",
+  "license": "MIT",
+  "entry": "SKILL.md",
+  "tags": [
+    "小红书",
+    "图片文案",
+    "AI写真",
+    "人像摄影",
+    "穿搭笔记",
+    "爆款标题",
+    "话题标签"
+  ],
+  "triggers": [
+    "配个文案",
+    "生成小红书文案",
+    "给这张图写文案",
+    "帮我写爆款标题",
+    "生成图片配文",
+    "写一个氛围感文案",
+    "生成穿搭笔记",
+    "这张照片适合什么风格"
+  ],
+  "input": {
+    "type": "object",
+    "required": [
+      "image"
+    ],
+    "properties": {
+      "image": {
+        "type": "image",
+        "description": "待分析的人像、穿搭、生活方式或 AI 写真图片。"
+      },
+      "style_count": {
+        "type": "integer",
+        "description": "需要生成的风格方案数量，默认 3。",
+        "default": 3,
+        "minimum": 3
+      },
+      "tone": {
+        "type": "string",
+        "description": "可选语气偏好，如温柔、松弛、复古、甜美、酷飒、高级。"
+      },
+      "scene_hint": {
+        "type": "string",
+        "description": "可选场景提示，如咖啡馆、居家、街拍、旅行、通勤。"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "image_analysis": {
+        "type": "string",
+        "description": "人物、穿搭、场景、光线和氛围分析。"
+      },
+      "recommended_styles": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "推荐使用的风格名称。"
+      },
+      "copy_options": {
+        "type": "array",
+        "description": "多套文案方案，每套包含标题、正文和标签。",
+        "items": {
+          "type": "object",
+          "properties": {
+            "style": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "body": {
+              "type": "string"
+            },
+            "hashtags": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "viral_titles": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "爆款标题备选。"
+      },
+      "short_captions": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "短文案备选。"
+      }
+    }
+  },
+  "files": [
+    "SKILL.md",
+    "README.md",
+    "manifest.json",
+    "CHANGELOG.md",
+    "references/styles.md",
+    "references/title-patterns.md",
+    "references/hashtag-rules.md",
+    "references/examples.md"
+  ]
+}
